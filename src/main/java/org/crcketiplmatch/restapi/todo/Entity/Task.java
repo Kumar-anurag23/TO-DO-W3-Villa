@@ -2,6 +2,7 @@ package org.crcketiplmatch.restapi.todo.Entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
@@ -18,7 +19,8 @@ public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    @NotNull(message = "Title is required")
+    @NotEmpty(message = "Title cannot be empty")
     @NotBlank(message = "Title is required")
     @Size(max = 10, message = "Title cannot exceed 100 characters")
     private String title;
