@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-@CrossOrigin(origins = "https://superb-mariel-anurag-knp-71563727.koyeb.app/")
+@CrossOrigin(origins ="https://superb-mariel-anurag-knp-71563727.koyeb.app/")
 @RestController
 @RequestMapping("/api/tasks")
 public class TaskController {
