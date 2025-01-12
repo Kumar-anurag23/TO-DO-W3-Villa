@@ -112,7 +112,7 @@
 
         const newTask = { title, description, completed: false };
 
-        fetch('https://superb-mariel-anurag-knp-71563727.koyeb.app/api/tasks', {
+        fetch(apiUrl, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(newTask)
