@@ -125,15 +125,32 @@
     });
 
     // Toggle task completion status
+    // function toggleTaskStatus(id, currentStatus) {
+    //     fetch(`${apiUrl}/${id}`, {
+    //         method: 'PUT',
+    //         headers: { 'Content-Type': 'application/json' },
+    //         body: JSON.stringify({ completed: !currentStatus })
+    //     })
+    //         .then(() => fetchTasks())
+    //         .catch(error => console.error('Error updating task:', error));
+    // }
+
+    // Toggle task completion status
     function toggleTaskStatus(id, currentStatus) {
+        const updatedStatus = !currentStatus; // Toggle the current status
+
+        // Send a PUT request to update the task status on the server
         fetch(`${apiUrl}/${id}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ completed: !currentStatus })
+            body: JSON.stringify({ completed: updatedStatus })
         })
-            .then(() => fetchTasks())
+            .then(() => {
+                fetchTasks(); // Refresh the task list to reflect the new status
+            })
             .catch(error => console.error('Error updating task:', error));
     }
+
 
     // Delete a task
     function deleteTask(id) {
